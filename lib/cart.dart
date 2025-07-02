@@ -1,3 +1,8 @@
+// ### Cart Page ###
+// => Column (
+// . Cart title , Image , Price , Add to Cart Button (onPressed -> Saved the data in Provider)
+// );
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shoe_store/cart_Changeprovider.dart';
