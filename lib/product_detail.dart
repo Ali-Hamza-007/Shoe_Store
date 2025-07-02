@@ -1,3 +1,9 @@
+// ### Product Detail Page ###
+// Column (
+// . ProductDetail title , image Url , Sizes Chips , Price , Add To cart Button 
+//);
+
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shoe_store/cart_Changeprovider.dart';
@@ -79,7 +85,7 @@ class _ProductDetailPAgeState extends State<ProductDetailPAge> {
                     builder:
                         (_) => Dialog(
                           backgroundColor: Color.fromRGBO(227, 227, 227, 1),
-                          child: Lottie.asset('assets/add_to_cart_GIF.json'),
+                          child: Lottie.asset('assets/add_to_cart_GIF.json'), // For adding animation in dialogue for add to Cart option clicked
                         ),
                   );
 
@@ -96,6 +102,7 @@ class _ProductDetailPAgeState extends State<ProductDetailPAge> {
                     widget.price,
                   );
                 },
+                // Add to Cart Button
                 child: Text(
                   'Add To Cart',
                   style: TextStyle(color: Colors.white),
