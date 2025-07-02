@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'product_detail.dart';
 
+// Class / Templated code for main_Page_Discount_Cards 
+
 class MainpageDiscountcards extends StatelessWidget {
   late String imageUrl;
   late int discount;
@@ -61,6 +63,8 @@ class MainpageDiscountcards extends StatelessWidget {
     );
   }
 }
+
+// Class / Templated code for main_Page_Bottom_Cards 
 
 class MainPageBottomCards extends StatelessWidget {
   String imageUrl1 = '';
@@ -167,6 +171,7 @@ class MainPageBottomCards extends StatelessWidget {
     );
   }
 }
+// Templated Code for ( Main_Page_Sorting_Chips/Size Chips )
 
 class ColorChangingChip extends StatefulWidget {
   final List<String> chipLabels;
