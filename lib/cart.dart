@@ -1,6 +1,6 @@
 // ### Cart Page ###
 // => Column (
-// . Cart title , Image , Price , Add to Cart Button (onPressed -> Saved the data in Provider)
+// . Cart title , Image in Circle Avatar , Price ,  delete Icon(onPressed -> Delete the Saved data in Provider / ChangeNotifierProvider i.e cart_Changeprovider.dart)
 // );
 
 import 'package:flutter/material.dart';
