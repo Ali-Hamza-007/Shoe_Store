@@ -1,3 +1,5 @@
+// Logic/Code for ChangeNotifier Provider
+
 import 'package:flutter/material.dart';
 
 class CartChangeprovider extends ChangeNotifier {
