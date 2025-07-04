@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'product_detail.dart';
 
-// Class / Templated code for main_Page_Discount_Cards 
-
 class MainpageDiscountcards extends StatelessWidget {
   late String imageUrl;
   late int discount;
@@ -18,53 +16,57 @@ class MainpageDiscountcards extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: const Color.fromRGBO(227, 227, 227, 1),
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              children: [
-                Text(
-                  '$discount% Discount',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                Text('on your first purchase', style: TextStyle(fontSize: 16)),
-                SizedBox(height: 8),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return ProductDetailPAge(
-                            imageUrl: imageUrl,
-                            ProductName: name,
-                            price: price,
-                          );
-                        },
-                      ),
-                    );
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: WidgetStatePropertyAll(Colors.black),
+    return SizedBox(
+      width: 400,
+      child: Card(
+        color: const Color.fromRGBO(227, 227, 227, 1),
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                children: [
+                  Text(
+                    '$discount% Discount',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  child: Text(
-                    'Shop Now',
-                    style: TextStyle(color: Colors.white),
+                  Text(
+                    'on your first purchase',
+                    style: TextStyle(fontSize: 16),
                   ),
-                ),
-              ],
+                  SizedBox(height: 8),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return ProductDetailPAge(
+                              imageUrl: imageUrl,
+                              ProductName: name,
+                              price: price,
+                            );
+                          },
+                        ),
+                      );
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: WidgetStatePropertyAll(Colors.black),
+                    ),
+                    child: Text(
+                      'Shop Now',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Image.asset(imageUrl, height: double.infinity, width: 200),
-        ],
+            Image.asset(imageUrl, height: double.infinity, width: 200),
+          ],
+        ),
       ),
     );
   }
 }
-
-// Class / Templated code for main_Page_Bottom_Cards 
 
 class MainPageBottomCards extends StatelessWidget {
   String imageUrl1 = '';
@@ -85,6 +87,7 @@ class MainPageBottomCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizedBox(
           width: 190,
@@ -171,7 +174,6 @@ class MainPageBottomCards extends StatelessWidget {
     );
   }
 }
-// Templated Code for ( Main_Page_Sorting_Chips/Size Chips )
 
 class ColorChangingChip extends StatefulWidget {
   final List<String> chipLabels;
@@ -210,7 +212,7 @@ class _ColorChangingChipState extends State<ColorChangingChip> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8.5),
             side: BorderSide(color: Colors.grey.shade400),
           ),
         );
