@@ -3,7 +3,6 @@
 // . ProductDetail title , image Url , Sizes Chips , Price , Add To cart Button 
 //);
 
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shoe_store/cart_Changeprovider.dart';
@@ -48,7 +47,7 @@ class _ProductDetailPAgeState extends State<ProductDetailPAge> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 40),
+              SizedBox(height: 10),
               Text(
                 widget.ProductName,
                 style: TextStyle(
@@ -57,55 +56,70 @@ class _ProductDetailPAgeState extends State<ProductDetailPAge> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              //SizedBox(height: 60),
-              Container(
-                padding: EdgeInsets.all(15),
-                child: Image.asset(widget.imageUrl),
-                //width: 300,
-                height: 300,
-              ),
-              SizedBox(height: 160),
+              SizedBox(height: 45),
+
+              Center(child: Image.asset(widget.imageUrl, height: 200)),
+
+              SizedBox(height: 100),
+              Spacer(),
               Text(
                 '\$${widget.price}',
+
                 style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
               ),
+              SizedBox(height: 5),
+
               ColorChangingChip(chipLabels: ['7', '8', '9', '10']),
               SizedBox(height: 10),
-              ElevatedButton(
-                style: ButtonStyle(
-                  minimumSize: MaterialStatePropertyAll(
-                    Size(double.infinity, 0),
+              Center(
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    fixedSize: MaterialStatePropertyAll(Size(250, 48)),
+                    backgroundColor: MaterialStatePropertyAll(
+                      Colors.blueAccent,
+                    ),
+                    padding: MaterialStatePropertyAll(EdgeInsets.all(15)),
                   ),
-                  backgroundColor: MaterialStatePropertyAll(Colors.blueAccent),
-                  padding: MaterialStatePropertyAll(EdgeInsets.all(15)),
-                ),
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder:
-                        (_) => Dialog(
-                          backgroundColor: Color.fromRGBO(227, 227, 227, 1),
-                          child: Lottie.asset('assets/add_to_cart_GIF.json'), // For adding animation in dialogue for add to Cart option clicked
-                        ),
-                  );
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      barrierDismissible:
+                          false, // Prevent closing by tapping outside
+                      builder:
+                          (_) => Dialog(
+                            backgroundColor: Color.fromRGBO(227, 227, 227, 1),
+                            child: Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Lottie.asset(
+                                'assets/add_to_cart_GIF.json',
+                                repeat: false,
+                              ),
+                            ),
+                          ),
+                    );
 
-                  Future.delayed(Duration(seconds: 1), () {
-                    Navigator.pop(context); // Close the dialog
-                  });
+                    // Close the dialog after 1 second
+                    Future.delayed(Duration(seconds: 1), () {
+                      Navigator.of(
+                        context,
+                        rootNavigator: true,
+                      ).pop(); // Safer pop
+                    });
 
-                  Provider.of<CartChangeprovider>(
-                    context,
-                    listen: false,
-                  ).addProduct(
-                    widget.imageUrl,
-                    widget.ProductName,
-                    widget.price,
-                  );
-                },
-                // Add to Cart Button
-                child: Text(
-                  'Add To Cart',
-                  style: TextStyle(color: Colors.white),
+                    // Add product to cart using Provider
+                    Provider.of<CartChangeprovider>(
+                      context,
+                      listen: false,
+                    ).addProduct(
+                      widget.imageUrl,
+                      widget.ProductName,
+                      widget.price,
+                    );
+                  },
+                  child: Text(
+                    'Add To Cart',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
             ],
