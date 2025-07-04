@@ -16,8 +16,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> mainPageCards = [
-// Main Page Discount Cads
-      
       MainpageDiscountcards(
         imageUrl: 'assets/mainPage_card.png',
         discount: 20,
@@ -40,13 +38,12 @@ class MyApp extends StatelessWidget {
       ),
     ];
 
-    return ChangeNotifierProvider( // Provider (ChangeNotifierProvider -> State Management )
+    return ChangeNotifierProvider(
       create: (context) => CartChangeprovider(),
       child: MaterialApp(
         theme: ThemeData.light(useMaterial3: true),
 
-        debugShowCheckedModeBanner: false, // To Remove Debug Sticker from Screen
-        // Bottom Bar
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
           bottomNavigationBar: SafeArea(
             child: Row(
@@ -67,7 +64,6 @@ class MyApp extends StatelessWidget {
               ],
             ),
           ),
-          // App Bar
           appBar: AppBar(
             backgroundColor: Colors.white,
             title: Row(
@@ -93,9 +89,8 @@ class MyApp extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    // Discount Cards
                     SizedBox(
                       height: 150,
                       child: SizedBox(
@@ -113,11 +108,10 @@ class MyApp extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 10),
-// Sorting Chips
+
                     ColorChangingChip(
-                      chipLabels: ['All', 'Sports', 'Sneakers'],
+                      chipLabels: ['All', 'Sports', 'Sneakers', 'Casual'],
                     ),
-                    // Main Page Bottom Cards
                     MainPageBottomCards(
                       imageUrl1: 'assets/mainPage_card.png',
                       ProductName1: 'Sports Shoes',
